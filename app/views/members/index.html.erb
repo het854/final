@@ -21,8 +21,12 @@
     <td><%= member.country.name %></td>
     <td><%= member.year_of_graduation %></td>
     <td><%= link_to " | Show | ", member_path(member) %> </td>
-    <td><%= link_to " | Edit | ", edit_member_path(member) %> </td>
-    <td><%= link_to " | Delete | ",  member_path(member), method: :delete, data: { confirm: 'Are you sure?' }  %> </td>
+
+    <% if current_user.admin %>
+       <td><%= link_to "  Edit | ", edit_member_path(member) %> </td>    
+       <td><%= link_to "  Delete | ", member_path(member), method: :delete, data: { confirm: 'Are you sure?' }  %> </td>
+
+       <% end %>
   </tr>
 <% end %>
 </table>

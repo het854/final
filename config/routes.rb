@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
+  resources :employment
+  resources :bschool
 
+  resources :member_imports
 
   get "/logout", to: "sessions#destroy"
 

@@ -1,6 +1,4 @@
-<h2>Details of Member: </h2> 
-
-<p><%= @member.first_name %> </p>
+<h2>Details of Member: <%= @member.first_name %>  <%= @member.last_name %></h2>
 
 <p><strong>Business School : </strong><%= @member.bschool.name %></p>
 <p><strong>Nationality  : </strong><%= @member.country.name %></p>
@@ -9,17 +7,17 @@
 <p><strong>Year of Graduation: </strong> <%= @member.year_of_graduation %></p>
 <p><strong>SEA MBA Event Year attended: </strong><%= @member.SEA_MBA_year_attended %></p>
 
-<p><strong>Pre-MBA Employer  : </strong><%= @pre_MBA_employment.company.name %></p>
-<p><strong>Pre-MBA Industry  : </strong><%= @pre_MBA_employment.company.industry %></p>
-<p><strong>Pre-MBA Function  : </strong><%= @pre_MBA_employment.function %></p>
+<p><strong>Pre-MBA Employer  : </strong><%= @pre_MBA_employment.try(:company).try(:name) %></p>
+<p><strong>Pre-MBA Industry  : </strong><%= @pre_MBA_employment.try(:company).try(:industry) %></p>
+<p><strong>Pre-MBA Function  : </strong><%= @pre_MBA_employment.try(:function) %></p>
 
-<p><strong>Internship Employer  : </strong><%= @internship_MBA_employment.company.name %></p>
-<p><strong>Internship Industry   : </strong><%= @internship_MBA_employment.company.industry %></p>
-<p><strong>Internship Function  : </strong><%= @internship_MBA_employment.function %></p>
+<p><strong>Internship Employer  : </strong><%= @internship_MBA_employment.try(:company).try(:name) %></p>
+<p><strong>Internship Industry   : </strong><%= @internship_MBA_employment.try(:company).try(:industry) %></p>
+<p><strong>Internship Function  : </strong><%= @internship_MBA_employment.try(:function) %></p>
 
-<p><strong>Post-MBA Employer  : </strong><%= @post_MBA_employment.company.name %></p>
-<p><strong>Post-MBA Industry  : </strong><%= @post_MBA_employment.company.industry %></p>
-<p><strong>Post-MBA Function  : </strong><%= @post_MBA_employment.function %></p>
+<p><strong>Post-MBA Employer  : </strong><%= @post_MBA_employment.try(:company).try(:name) %></p>
+<p><strong>Post-MBA Industry  : </strong><%= @post_MBA_employment.try(:company).try(:industry) %></p>
+<p><strong>Post-MBA Function  : </strong><%= @post_MBA_employment.try(:function) %></p>
 
 <p></p>
 <%= link_to 'Edit', edit_member_path(@member) %> |

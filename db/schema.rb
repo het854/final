@@ -36,9 +36,12 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "employments", force: true do |t|
     t.string "company_id"
     t.string "function"
+    t.string "member_id"
+    t.string "period_employed"
   end
 
   add_index "employments", ["company_id"], name: "index_employments_on_company_id"
+  add_index "employments", ["member_id"], name: "index_employments_on_member_id"
 
 # Could not dump table "members" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

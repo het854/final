@@ -2,16 +2,17 @@ Member:
   first_name: string
   last_name: string
   gender: string
-  bschool_id: string
+  bschool_id: integer
   email: string
-  country_id: string  #nationality
+  country_id: integer  #nationality
   year_of_graduation: integer
   SEA_MBA_year_attended: integer
   current_location: string
 
+
 Bschool:
   name: string
-  country_id: string
+  country_id: integer
 
 Country:
   name: string
@@ -19,12 +20,12 @@ Country:
 
 Company:
   name: string
-  country_id: string
+  country_id: integer
   industry: string
 
 Employment:
-  company_id: string
-  member_id: string
+  company_id: integer
+  member_id: integer
   function: string
   period_employed: string #pre-MBA, MBA internship, post-MBA
 

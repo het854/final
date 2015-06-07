@@ -1,23 +1,30 @@
 class MembersController < ApplicationController
 
   def index
-      @members = Member.all
-      
-  end
+      @members = Member.all.order(:first_name)
+  
+  end    
+
 
   def show
+
       @member = Member.find_by(id: params["id"])
 
-      @emp_list = Employment.where(member_id: @member.id)
-      @pre_MBA_employer = @emp_list.find_by(period_employed: "pre-MBA")
-      @internship_MBA_employer = @emp_list.find_by(period_employed: "internship")
-      @post_MBA_employer = @emp_list.find_by(period_employed: "post-MBA")
+      @pre_MBA_employer = Employment.where([" member_id = ? and period_employed = ?" , "@member.id", "pre-MBA"])
+      @internship_MBA_employer = Employment.where(" member_id  ? and period_employed = ?", "@member.id", "internship")
+      @post_MBA_employer = Employment.where(" member_id  ? and period_employed = ?", "@member.id", "post-MBA")
+    
 
   end
 
   def new
   	@member = Member.new 
+      
+  end
 
+ 
+  def edit
+    @member = Member.find(params[:id])
   end
 
 
@@ -33,11 +40,31 @@ class MembersController < ApplicationController
       end 
     end #end of create
 
-  def import
-    Member.import(params[:file])
-    redirect_to root_url, notice: "Members imported."
+  def update
+    @member = Member.find(params[:id])
+ 
+    if @member.update(params["member"])
+      redirect_to @member
+    else
+      render 'edit'
+    end
+  end 
+
+ 
+  def destroy
+    @member = Member.find(params[:id])
+    @member.delete
+    redirect_to members_path
   end
 
 
+  def import
+    begin
+      Member.import(params[:file])
+      redirect_to root_url, notice: "Members imported."
+    rescue
+      redirect_to root_url, notice: "Invalid file format."
+    end
+  end
 
 end
