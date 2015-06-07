@@ -1,0 +1,82 @@
+<% if @member.errors.any? %>
+  <div class="alert alert-warning" role="alert">
+    <% @member.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for @member do |form| %>
+
+<!-- start of form error checking -->
+<% if @member.errors.any? %> 
+    <div id="error_explanation">
+      <h2>the following
+        <%= pluralize(@member.errors.count, "error") %> prevented this Member from being saved to the database:
+      </h2>
+      <ul>
+        <% @member.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!-- end of form error checking -->
+
+
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :gender %>
+    <%= form.text_field :gender, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :bschool_id %>
+    <%= form.collection_select :bschool_id, Bschool.all, :id, :name, {}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= form.label :year_of_graduation %>
+    <%= form.text_field :year_of_graduation, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :country_id %>
+    <%= form.collection_select :country_id, Country.all, :id, :name, {}, {class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :current_location %>
+    <%= form.text_field :current_location, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :SEA_MBA_year_attended %>
+    <%= form.text_field :SEA_MBA_year_attended, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :employer_pre_MBA %>
+    <%= form.text_field :employer_pre_MBA, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :employer_MBA_internship %>
+    <%= form.text_field :employer_MBA_internship, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :employer_post_MBA %>
+    <%= form.text_field :employer_post_MBA, class: "form-control" %>
+  </div>
+
+
+  <%= form.button 'Create Member', class: "btn btn-success" %>
+  
+
+
+<% end %>

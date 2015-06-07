@@ -1,0 +1,35 @@
+Member: 
+  first_name: string
+  last_name: string
+  gender: string
+  bschool_id: string
+  email: string
+  country_id: string  #nationality
+  year_of_graduation: integer
+  SEA_MBA_year_attended: integer
+  current_location: string
+
+Bschool:
+  name: string
+  country_id: string
+
+Country:
+  name: string
+  is_asean: boolean
+
+Company:
+  name: string
+  country_id: string
+  industry: string
+
+Employment:
+  company_id: string
+  member_id: string
+  function: string
+  period_employed: string #pre-MBA, MBA internship, post-MBA
+
+User:
+  name: string
+  email: string
+  password_digest: string
+  admin: boolean

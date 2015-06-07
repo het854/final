@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SEA MBA Members Database</title>
+  <%= javascript_include_tag 'application' %>
+  
+  <!-- Logo Font -->
+    <link href="http://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet" type="text/css">
+    
+  <!-- Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

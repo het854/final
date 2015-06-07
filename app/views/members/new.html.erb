@@ -1,0 +1,11 @@
+<h2>Import Members</h2>
+<%= form_for import_members_path, multipart: true do %>
+  <p><%= file_field_tag :file %></p>
+  <p><%= submit_tag "Import" %></p>
+<% end %>
+<%= link_to "Cancel", members_path %>
+  
+
+<h2>New Member</h2>
+
+<%= render "form" %>
