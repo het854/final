@@ -4,6 +4,7 @@ Bschool.delete_all
 Country.delete_all
 Company.delete_all
 Employment.delete_all
+User.delete_all
 
 #Create Countries
 puts "Creating some countries..."

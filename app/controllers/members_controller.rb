@@ -1,7 +1,11 @@
 class MembersController < ApplicationController
 
-  def index
-      @members = Member.all.order(:first_name)
+  def index      
+      if params[:search]
+        @members = Member.search(params[:search]).order(:first_name)
+      else
+        @members = Member.all.order(:first_name)
+  end
   
   end    
 
@@ -10,11 +14,10 @@ class MembersController < ApplicationController
 
       @member = Member.find_by(id: params["id"])
 
+      #TO DO: test this
       @pre_MBA_employer = Employment.where([" member_id = ? and period_employed = ?" , "@member.id", "pre-MBA"])
       @internship_MBA_employer = Employment.where(" member_id  ? and period_employed = ?", "@member.id", "internship")
-      @post_MBA_employer = Employment.where(" member_id  ? and period_employed = ?", "@member.id", "post-MBA")
-    
-
+      @post_MBA_employer = Employment.where(" memberember_id  ? and period_employed = ?", "@member.id", "post-MBA")
   end
 
   def new
