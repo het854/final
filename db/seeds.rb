@@ -2,8 +2,7 @@ puts "Deleting all records from the database..."
 Member.delete_all
 Bschool.delete_all
 Country.delete_all
-Company.delete_all
-Employment.delete_all
+Industry.delete_all
 User.delete_all
 
 #Create Countries
@@ -21,14 +20,13 @@ booth = Bschool.create(name: "Booth", country_id: usa.id)
 kellogg = Bschool.create(name: "Kellogg", country_id: usa.id)
 wharton = Bschool.create(name: "Wharton", country_id: usa.id)
 
-#Creates Companies
-puts "Creating some Companies"
-McKinsey = Company.create(name: "McKinsey", country_id: usa.id, industry: "Consulting") 
-Microsoft = Company.create(name: "Microsoft", country_id: usa.id, industry: "Tech") 
-PnG = Company.create(name: "Proctor and Gamble", country_id: usa.id, industry: "CPG") 
-CreditSuisse = Company.create(name: "Credit Suisse", country_id: swiss.id, industry: "Banking") 
-Barclays = Company.create(name: "Barclays", country_id: uk.id, industry: "Banking") 
 
+#Creates Indusries
+puts "Creating some Industries"
+consulting = Industry.create(name: "Consulting")
+tech =  Industry.create(name: "Tech")
+banking = Industry.create(name: "Banking")
+cpg = Industry.create(name: "CPG")
 
 # Create some members
 puts "Creating some members"

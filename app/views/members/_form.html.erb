@@ -27,7 +27,7 @@
     <%= form.text_field :email, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= form.label :bschool_id %>
+    <%= form.label "Business School" %>
     <%= form.collection_select :bschool_id, Bschool.all, :id, :name, {}, {class: "form-control"} %>
   </div>
   <div class="form-group">
@@ -49,15 +49,15 @@
   </div>
   <div class="form-group">
     <%= form.label "Pre-MBA Employer" %>
-    <%= form.text_field :employer_pre_MBA, class: "form-control" %>
+    <%= form.text_field :pre_mba_company, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label "MBA Internship Employer" %>
-    <%= form.text_field :employer_MBA_internship, class: "form-control" %>
+    <%= form.text_field :mba_internship_company, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.label "Post-MBA Employer" %>
-    <%= form.text_field :employer_post_MBA, class: "form-control" %>
+    <%= form.text_field :post_mba_company, class: "form-control" %>
   </div>
 
 

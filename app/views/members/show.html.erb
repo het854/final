@@ -6,18 +6,17 @@
 <p><strong>Email  : </strong><%= @member.email %></p>
 <p><strong>Year of Graduation: </strong> <%= @member.year_of_graduation %></p>
 <p><strong>SEA MBA Event Year attended: </strong><%= @member.SEA_MBA_year_attended %></p>
+<p><strong>Current Location: </strong><%= @member.current_location %></p>
 
-<p><strong>Pre-MBA Employer  : </strong><%= @pre_MBA_employment.try(:company).try(:name) %></p>
-<p><strong>Pre-MBA Industry  : </strong><%= @pre_MBA_employment.try(:company).try(:industry) %></p>
-<p><strong>Pre-MBA Function  : </strong><%= @pre_MBA_employment.try(:function) %></p>
+<p><strong>Pre-MBA Company  : </strong><%= @member.pre_mba_company %></p>
+<p><strong>Pre-MBA Industry  : </strong><%= Industry.find_by(id: @member.pre_mba_industry_id).try(:name) %></p>
+<p><strong>Pre-MBA Function  : </strong><%= @member.pre_mba_function %></p>
 
-<p><strong>Internship Employer  : </strong><%= @internship_MBA_employment.try(:company).try(:name) %></p>
-<p><strong>Internship Industry   : </strong><%= @internship_MBA_employment.try(:company).try(:industry) %></p>
-<p><strong>Internship Function  : </strong><%= @internship_MBA_employment.try(:function) %></p>
+<p><strong>Internship Company  : </strong><%= @member.mba_internship_company %></p>
 
-<p><strong>Post-MBA Employer  : </strong><%= @post_MBA_employment.try(:company).try(:name) %></p>
-<p><strong>Post-MBA Industry  : </strong><%= @post_MBA_employment.try(:company).try(:industry) %></p>
-<p><strong>Post-MBA Function  : </strong><%= @post_MBA_employment.try(:function) %></p>
+<p><strong>Post-MBA Company  : </strong><%= @member.post_mba_company %></p>
+<p><strong>Post-MBA Industry  : </strong><%= Industry.find_by(id: @member.post_mba_industry_id).try(:name) %></p>
+<p><strong>Post-MBA Function  : </strong><%= @member.post_mba_function %></p>
 
 <p></p>
 <%= link_to 'Edit', edit_member_path(@member) %> |

@@ -14,11 +14,7 @@ class MembersController < ApplicationController
 
       @member = Member.find_by(id: params["id"])
 
-      #TO DO: test this
-      @pre_MBA_employer = Employment.where([" member_id = ? and period_employed = ?" , "@member.id", "pre-MBA"])
-      @internship_MBA_employer = Employment.where(" member_id  ? and period_employed = ?", "@member.id", "internship")
-      @post_MBA_employer = Employment.where(" memberember_id  ? and period_employed = ?", "@member.id", "post-MBA")
-  end
+ end
 
   def new
   	@member = Member.new 

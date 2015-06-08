@@ -8,6 +8,13 @@ Member:
   year_of_graduation: integer
   SEA_MBA_year_attended: integer
   current_location: string
+  pre_mba_company: string  
+  pre_mba_industry_id: integer
+  pre_mba_function: string     
+  mba_internship_company: string
+  post_mba_company: string        
+  post_mba_industry_id: integer    #preferred industry
+  post_mba_function: string
 
 
 Bschool:
@@ -18,16 +25,8 @@ Country:
   name: string
   is_asean: boolean
 
-Company:
+Industry:
   name: string
-  country_id: integer
-  industry: string
-
-Employment:
-  company_id: integer
-  member_id: integer
-  function: string
-  period_employed: string #pre-MBA, MBA internship, post-MBA
 
 User:
   name: string

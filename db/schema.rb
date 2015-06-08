@@ -14,37 +14,44 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "bschools", force: true do |t|
-    t.string "name"
-    t.string "country_id"
+    t.string  "name"
+    t.integer "country_id", limit: 255
   end
 
   add_index "bschools", ["country_id"], name: "index_bschools_on_country_id"
-
-  create_table "companies", force: true do |t|
-    t.string "name"
-    t.string "country_id"
-    t.string "industry"
-  end
-
-  add_index "companies", ["country_id"], name: "index_companies_on_country_id"
 
   create_table "countries", force: true do |t|
     t.string  "name"
     t.boolean "is_asean", default: false
   end
 
-  create_table "employments", force: true do |t|
-    t.string "company_id"
-    t.string "function"
-    t.string "member_id"
-    t.string "period_employed"
+  create_table "industries", force: true do |t|
+    t.string "name"
   end
 
-  add_index "employments", ["company_id"], name: "index_employments_on_company_id"
-  add_index "employments", ["member_id"], name: "index_employments_on_member_id"
+  create_table "members", force: true do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "gender"
+    t.integer "bschool_id"
+    t.string  "email"
+    t.integer "country_id"
+    t.integer "year_of_graduation"
+    t.integer "SEA_MBA_year_attended"
+    t.string  "current_location"
+    t.integer "pre_mba_industry_id"
+    t.string  "pre_mba_function"
+    t.integer "post_mba_industry_id"
+    t.string  "post_mba_function"
+    t.string  "pre_mba_company"
+    t.string  "mba_internship_company"
+    t.string  "post_mba_company"
+  end
 
-# Could not dump table "members" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  add_index "members", ["bschool_id"], name: "index_members_on_bschool_id"
+  add_index "members", ["country_id"], name: "index_members_on_country_id"
+  add_index "members", ["post_mba_industry_id"], name: "index_members_on_post_mba_industry_id"
+  add_index "members", ["pre_mba_industry_id"], name: "index_members_on_pre_mba_industry_id"
 
   create_table "users", force: true do |t|
     t.string  "name"

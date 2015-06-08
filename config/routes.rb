@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  resources :employment
-  resources :bschool
+  resources :bschools
+  resources :companys
   resources :member_imports
   resources :users
 
