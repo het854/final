@@ -7,8 +7,37 @@
       <div class="caption">
           <h3><%= link_to @bschool.name, bschool_url(@bschool) %></h3>
           <h4>Number of members: <%= @members.where(bschool_id: @bschool.id).size %></h4>
-        </div>
+        </div> 
       </div>
     </div>
 
 </div>
+
+<table id="members">
+  <tr>
+    <th>First Name</th>  
+    <th>Last Name</th>  
+    <th>Business School</th>  
+    <th>Nationality</th>  
+    <th>Class of </th>  
+  </tr>
+
+
+<% @members.each do |member| %>
+  <tr>
+    <td><%= member.first_name  %></td>
+    <td><%= member.last_name %></td>
+    <td><%= member.bschool.name %></td>
+    <td><%= member.country.name %></td>
+    <td><%= member.year_of_graduation %></td>
+
+    <td><%= link_to " | Show | ", member_path(member) %> </td>
+
+    <% if current_user.admin %>
+       <td><%= link_to "  Edit | ", edit_member_path(member) %> </td>    
+       <td><%= link_to "  Delete | ", member_path(member), method: :delete, data: { confirm: 'Are you sure?' }  %> </td>
+
+    <% end %>
+  </tr>
+<% end %>
+</table>

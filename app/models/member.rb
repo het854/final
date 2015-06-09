@@ -10,6 +10,7 @@ class Member < ActiveRecord::Base
 	belongs_to :country
 	
 	# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+	# See app/lib/upload.csv for an example csv file to upload
 	# imports a CSV file (no headers) where 
 	# col 0: first_name, col 1: last_name, col 2: gender, col 3: email, col 4: bschool name,  col 5: year_of_graduation
 	# col 6: country name, col 7: pre-MBA company name, col 8: MBA internship company name, col 9: post-MBA company name

@@ -60,6 +60,7 @@ class MembersController < ApplicationController
   end
 
 
+  # app/lib contains upload.csv for a test upload upload
   def import
     begin
       Member.import(params[:file])

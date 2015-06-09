@@ -11,7 +11,7 @@ class BschoolsController < ApplicationController
   def show
 
     @bschool = Bschool.find_by(id: params["id"])
-    @members = Member.all
+    @members = Member.all.where(bschool_id: @bschool.id)
 
  end
 

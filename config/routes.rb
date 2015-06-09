@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get "/logout", to: "sessions#destroy"
 
-  root to: 'members#index' 
+  root to: 'bschools#index' 
 
 
 end
