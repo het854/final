@@ -3,9 +3,10 @@
 <!-- Upload members via a CSV file.  For specific format, see 'self.import' method in member.rb -->
 <%= form_tag import_members_path, multipart: true do %>
   <%= file_field_tag :file %>
-  
+  <p></p>
   <%= submit_tag "Import CSV" %>
-<% end %>
+ <% end %>
+
 
 <h2>New Member</h2>
 
