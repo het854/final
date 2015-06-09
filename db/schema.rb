@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "bschools", force: true do |t|
     t.string  "name"
     t.integer "country_id", limit: 255
+    t.string  "image"
+    t.string  "website"
   end
 
   add_index "bschools", ["country_id"], name: "index_bschools_on_country_id"

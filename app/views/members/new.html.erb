@@ -1,4 +1,6 @@
 <h2>Import Members</h2>
+
+<!-- Upload members via a CSV file.  For specific format, see 'self.import' method in member.rb -->
 <%= form_tag import_members_path, multipart: true do %>
   <%= file_field_tag :file %>
   

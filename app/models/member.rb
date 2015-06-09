@@ -3,19 +3,18 @@ class Member < ActiveRecord::Base
 	require 'csv'   
 
 	validates_presence_of :first_name, :last_name, :bschool_id, :country_id 
-	validates :email, presence: true, uniqueness: true
-	
+	validates :email, presence: true, uniqueness: true	
 
 	has_many :companies
 	belongs_to :bschool
 	belongs_to :country
 	
-	# to do:
-	# imports s CSV file (no headers) where 
+	# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+	# imports a CSV file (no headers) where 
 	# col 0: first_name, col 1: last_name, col 2: gender, col 3: email, col 4: bschool name,  col 5: year_of_graduation
 	# col 6: country name, col 7: pre-MBA company name, col 8: MBA internship company name, col 9: post-MBA company name
 	# col 10: Pre-MBA Industry, col 11: Pre-MBA function, col 12: Post-MBA Industry Preference, col 13: Post-MBA Function
-	# 
+	# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 	def self.import(file)
 		CSV.foreach(file.path) do |row|
 			

@@ -20,6 +20,8 @@ Member:
 Bschool:
   name: string
   country_id: integer
+  image: string
+  website: string   #this should ideally point to the SEA club url of each school
 
 Country:
   name: string

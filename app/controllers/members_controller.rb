@@ -1,11 +1,14 @@
 class MembersController < ApplicationController
 
-  def index      
+  def index     
+
+      @bschools = Bschool.all.order(:name)
+
       if params[:search]
         @members = Member.search(params[:search]).order(:first_name)
       else
         @members = Member.all.order(:first_name)
-  end
+       end
   
   end    
 
